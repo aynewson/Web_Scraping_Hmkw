@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>
+
+
+
+<body>
+
+
+
+    <div class="container">
+
+        <div class="jumbotron container">
+
+            <h1 align="center">Mission to Mars</h1>
+
+            <p align="center"><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+
+
+
+        </div>
+
+
+
+        {% for marsDetail in marsDetails%}
+
+        <div class="row">
+
+            <div class="col-sm-12">
+
+                <b>
+                    <h2 id="myHeader">Latest Mars News</h2>
+                </b>
+
+                <div class="span4">
+
+                    <b>
+                        <p>{{ marsDetail.news_title}}</p>
+                    </b>
+
+                    <p>{{ marsDetail.news_p}}</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="row">
+
+            <div class="col-sm-6">
+
+                <b>
+                    <h2 id="myHeader">Featured Mass Image</h2>
+                </b>
+
+                <img class="img-responsive" src={{marsDetail.featured_image_url}} alt="Mars">
+
+            </div>
+
+            <div class="col-sm-6">
+
+                <div class="thumbnail">
+
+                    <b>
+                        <p>Current Weather on Mars</p>
+                    </b>
+
+                    <hr style="width: 100%; color: grey" />
+
+                    <p>{{ marsDetail.mars_weather}}</p>
+
+                </div>
+
+            </div>
+
+            <div class="col-sm-6">
+
+                <table id="tablepress-mars" class="table table-bordered">
+
+                    <tbody>
+
+                        <tr class="row-1 odd">
+
+                            <td class="column-1"><strong>{{marsDetail.desc[0]}}</strong></td>
+
+                            <td class="column-2">{{marsDetail.facts[0]}}<br>
+
+                            </td>
+
+                        </tr>
+
+                        <tr class="row-2 even">
+
+                            <td class="column-1"><strong>{{marsDetail.desc[1]}}</strong></td>
+
+                            <td class="column-2">{{marsDetail.facts[1]}}<br>
+
+                            </td>
+
+                        </tr>
+
+                        <tr class="row-3 odd">
+
+                            <td class="column-1"><strong>{{marsDetail.desc[2]}}</strong></td>
+
+                            <td class="column-2">{{marsDetail.facts[2]}}</td>
+
+                        </tr>
+
+                        <tr class="row-4 even">
+
+                            <td class="column-1"><strong>{{marsDetail.desc[3]}}</strong></td>
+
+                            <td class="column-2">2 (<a href="https://space-facts.com/phobos/">Phobos</a> &amp; <a
+                                    href="https://space-facts.com/deimos/">{{marsDetail.facts[3]}}</a>)</td>
+
+                        </tr>
+
+                        <tr class="row-5 odd">
+
+                            <td class="column-1"><strong>{{marsDetail.desc[4]}}</strong></td>
+
+                            <td class="column-2">{{marsDetail.facts[4]}}</td>
+
+                        </tr>
+
+                        <tr class="row-6 even">
+
+                            <td class="column-1"><strong>{{marsDetail.desc[5]}}</strong></td>
+
+                            <td class="column-2">{{marsDetail.facts[5]}}<br>
+
+                            </td>
+
+                        </tr>
+
+                        <tr class="row-7 odd">
+
+                            <td class="column-1"><strong>{{marsDetail.desc[6]}}/strong></td>
+
+                            <td class="column-2">{{marsDetail.facts[6]}}</td>
+
+                        </tr>
+
+                        <tr class="row-8 even">
+
+                            <td class="column-1"><strong>{{marsDetail.desc[7]}}</strong></td>
+
+                            <td class="column-2">{{marsDetail.facts[7]}}</td>
+
+                        </tr>
+
+                        <tr class="row-9 odd">
+
+                            <td class="column-1"><strong>{{marsDetail.desc[8]}}</strong></td>
+
+                            <td class="column-2">{{marsDetail.facts[8]}}</td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <b>
+                <h2 id="myHeader" align="center">Featured Mass Image</h2>
+            </b>
+
+            <div class="col-sm-6">
+
+                <div class="thumbnail">
+
+                    <img class="img-responsive" src={{marsDetail.imageList[0]}} alt="Mars">
+
+                    <b>
+                        <h3 id="myHeader">{{marsDetail.titleList[0]}}</h3>
+                    </b>
+
+                </div>
+
+            </div>
+
+
+
+
+
+            <div class="col-sm-6">
+
+                <div class="thumbnail">
+
+                    <img class="img-responsive" src={{marsDetail.imageList[1]}} alt="Mars">
+
+                    <b>
+                        <h3 id="myHeader">{{marsDetail.titleList[1]}}</h3>
+                    </b>
+
+                </div>
+
+            </div>
+
+
+
+
+
+            <div class="col-sm-6">
+
+                <div class="thumbnail">
+
+                    <img class="img-responsive" src={{marsDetail.imageList[2]}} alt="Mars">
+
+                    <b>
+                        <h3 id="myHeader">{{marsDetail.titleList[2]}}</h3>
+                    </b>
+
+                </div>
+
+            </div>
+
+
+
+
+
+            <div class="col-sm-6">
+
+                <div class="thumbnail">
+
+                    <img class="img-responsive" src={{marsDetail.imageList[3]}} alt="Mars">
+
+                    <b>
+                        <h3 id="myHeader">{{marsDetail.titleList[3]}}</h3>
+                    </b>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+
+
+    </div>
+
+
+
+</body>
+
+
+
+</html>
